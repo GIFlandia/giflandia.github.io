@@ -10,7 +10,6 @@
             --text: #333;
             --border: #ddd;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -21,7 +20,6 @@
             flex-direction: column;
             height: 100vh;
         }
-
         /* --- Nagłówek i Kontrolki --- */
         header {
             background: var(--card-bg);
@@ -34,32 +32,26 @@
             align-items: center;
             justify-content: space-between;
         }
-
         h1 { margin: 0; font-size: 1.2rem; color: var(--primary); }
-
         .controls {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
             align-items: center;
         }
-
         select, input {
             padding: 8px 12px;
             border: 1px solid var(--border);
             border-radius: 6px;
             font-size: 14px;
         }
-
         input[type="text"] { width: 180px; }
-
         /* --- Układ Siatki (Grid) --- */
         #gallery-container {
             flex: 1;
             overflow-y: auto;
             padding: 20px;
         }
-
         #gallery {
             display: grid;
             /* ZMIANA: Zwiększono szerokość z 130px na 220px, aby zmieścić długie kody */
@@ -68,7 +60,6 @@
             max-width: 1600px;
             margin: 0 auto;
         }
-
         .gif-card {
             background: var(--card-bg);
             border-radius: 8px;
@@ -83,13 +74,11 @@
             height: 160px;
             position: relative;
         }
-
         .gif-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             border: 1px solid var(--primary);
         }
-
         .img-wrapper {
             flex: 1;
             display: flex;
@@ -98,13 +87,11 @@
             width: 100%;
             overflow: hidden;
         }
-
         .gif-card img {
             max-width: 100%;
             max-height: 90px;
             object-fit: contain;
         }
-
         .code-badge {
             margin-top: 10px;
             background: #eef2ff;
@@ -121,7 +108,6 @@
             overflow: hidden;
             text-overflow: ellipsis; /* Kropki jeśli kod jest ekstremalnie długi */
         }
-
         /* --- Stopka i Paginacja --- */
         footer {
             background: var(--card-bg);
@@ -132,7 +118,6 @@
             align-items: center;
             gap: 20px;
         }
-
         .page-btn {
             padding: 8px 16px;
             background: white;
@@ -140,10 +125,8 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        
         .page-btn:disabled { opacity: 0.5; cursor: default; }
         .page-btn:not(:disabled):hover { background: #f0f0f0; }
-
         /* Powiadomienie (Toast) */
         #toast {
             visibility: hidden;
@@ -160,19 +143,15 @@
             transform: translateX(-50%);
             font-size: 16px;
         }
-
         #toast.show {
             visibility: visible;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
-
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
-
     </style>
 </head>
 <body>
-
 <header>
 	<div>
     <h1>GIFlandia 2.0</h1>
@@ -180,11 +159,9 @@
 	</div>
     <div class="controls">
         <input type="text" id="search-input" placeholder="Szukaj kodu..." onkeyup="handleSearch()">
-        
         <select id="category-select" onchange="changeCategory()">
             <option value="all">Wszystkie kategorie</option>
         </select>
-
         <select id="page-size" onchange="changePageSize()">
             <option value="50">50 na stronę</option>
             <option value="100" selected>100 na stronę</option>
@@ -192,17 +169,14 @@
         </select>
     </div>
 </header>
-
 <div id="gallery-container">
     <div id="gallery"></div>
 </div>
-
 <footer>
     <button class="page-btn" onclick="prevPage()" id="btn-prev">Poprzednia</button>
     <span id="page-info">Strona 1</span>
     <button class="page-btn" onclick="nextPage()" id="btn-next">Następna</button>
 </footer>
-
 <div id="toast">Skopiowano do schowka!</div>
 
 <script>
